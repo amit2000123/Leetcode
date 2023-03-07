@@ -30,22 +30,29 @@ public:
     {
         vector<vector<int>> vis(n,vector<int>(m,0));
         
-        for(int i=0;i<n;i++){
-            if(vis[i][0] == 0 && mat[i][0] == 'O'){
-                dfs(i,0,n,m,mat,vis);
-            }
-            if(vis[i][m-1] == 0 && mat[i][m-1] == 'O'){
-                dfs(i,m-1,n,m,mat,vis);
-            }
+        // for(int i=0;i<n;i++){
+        //     if(vis[i][0] == 0 && mat[i][0] == 'O'){
+        //         dfs(i,0,n,m,mat,vis);
+        //     }
+        //     if(vis[i][m-1] == 0 && mat[i][m-1] == 'O'){
+        //         dfs(i,m-1,n,m,mat,vis);
+        //     }
             
-        }
-        for(int j=0;j<m;j++){
-                if(vis[0][j] == 0 && mat[0][j] == 'O'){
-                    dfs(0,j,n,m,mat,vis);    
+        // }
+        // for(int j=0;j<m;j++){
+        //         if(vis[0][j] == 0 && mat[0][j] == 'O'){
+        //             dfs(0,j,n,m,mat,vis);    
+        //         }
+        //         if(vis[n-1][j] == 0 && mat[n-1][j] == 'O'){
+        //             dfs(n-1,j,n,m,mat,vis);    
+        //         }
+        // }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if((i==0 || i==n-1 || j==0 || j==m-1 ) && mat[i][j] == 'O'){
+                    dfs(i,j,n,m,mat,vis);
                 }
-                if(vis[n-1][j] == 0 && mat[n-1][j] == 'O'){
-                    dfs(n-1,j,n,m,mat,vis);    
-                }
+            }
         }
         
         for(int i=0;i<n;i++){
