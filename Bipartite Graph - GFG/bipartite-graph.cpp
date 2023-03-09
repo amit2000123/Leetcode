@@ -6,7 +6,7 @@ using namespace std;
 class Solution {
 public:
 
-    bool bfs(int start , int v, vector<int>adj[],vector<int> &color){
+    bool bfs(int start , vector<int>adj[],vector<int> &color){
         queue<int>q;
         q.push(start);
         color[start] = 0;
@@ -29,7 +29,7 @@ public:
 	    vector<int> color(v,-1);
 	    for(int i=0;i<v;i++){
 	        if(color[i] == -1){
-	            if(bfs(i,v,adj,color) == false)return false;
+	            if(bfs(i,adj,color) == false)return false;
 	        }
 	    }
 	    return true;
