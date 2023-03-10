@@ -6,22 +6,51 @@ using namespace std;
 class Solution {
 public:
 
-    bool bfs(int start , vector<int>adj[],vector<int> &color){
-        queue<int>q;
-        q.push(start);
-        color[start] = 0;
-        while(q.size() != 0){
-            int node = q.front();
-            q.pop();
-            for(auto adjnode : adj[node]){
+//     bool bfs(int start , vector<int>adj[],vector<int> &color){
+//         queue<int>q;
+//         q.push(start);
+//         color[start] = 0;
+//         while(q.size() != 0){
+//             int node = q.front();
+//             q.pop();
+//             for(auto adjnode : adj[node]){
+//                 if(color[adjnode] == -1){
+//                     color[adjnode] = !(color[node]);
+//                     q.push(adjnode);
+//                 }
+//                 else if(color[adjnode] == color[node]) return false;
+                
+//             }
+//         }
+//         return true;
+//     }
+
+// 	bool isBipartite(int v, vector<int>adj[]){
+// 	    vector<int> color(v,-1);
+// 	    for(int i=0;i<v;i++){
+// 	        if(color[i] == -1){
+// 	            if(bfs(i,adj,color) == false)return false;
+// 	        }
+// 	    }
+// 	    return true;
+	    
+// 	}
+	
+	
+	
+	
+	
+	
+	bool dfs(int start , int icolor,vector<int>adj[],vector<int> &color){
+        
+        color[start] = icolor;
+            for(auto adjnode : adj[start]){
                 if(color[adjnode] == -1){
-                    color[adjnode] = !(color[node]);
-                    q.push(adjnode);
+                   if( dfs(adjnode,!icolor,adj,color) == false) return false;
                 }
-                else if(color[adjnode] == color[node]) return false;
+                else if(color[adjnode] == color[start]) return false;
                 
             }
-        }
         return true;
     }
 
@@ -29,7 +58,7 @@ public:
 	    vector<int> color(v,-1);
 	    for(int i=0;i<v;i++){
 	        if(color[i] == -1){
-	            if(bfs(i,adj,color) == false)return false;
+	            if(dfs(i,0,adj,color) == false)return false;
 	        }
 	    }
 	    return true;
