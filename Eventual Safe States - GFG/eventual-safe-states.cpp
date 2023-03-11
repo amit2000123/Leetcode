@@ -11,15 +11,65 @@ using namespace std;
 class Solution {
   public:
   
+    // safe nodes == wo saare nodes jo kisi cycle ka hissa nhi hai
+    // in short, jin nodes ki pathvis[node] == 0 hai , wo sabhi kisi cycle ka hissa nhi hai aur safe nodes hai.
+    //  bool dfs(int node , vector<int> adj[] , vector<int> &vis, vector<int> &pathvis){
+    //     vis[node] = 1;
+    //     pathvis[node] = 1;
+    //     for(auto adjacentnode : adj[node]){
+    //         if(vis[adjacentnode] == 0){
+    //             if(dfs(adjacentnode,adj,vis,pathvis) == true) return true;
+    //         }
+    //         else if(pathvis[adjacentnode] == 1) return true;
+    //     }
+    //     pathvis[node] = 0;
+    //     return false;
+        
+    // }
+  
+    // vector<int> eventualSafeNodes(int v, vector<int> adj[]) {
+    //     vector<int> vis(v,0);
+    //     vector<int> pathvis(v,0);
+    //     bool ans;
+    //     vector<int> vec;
+    //     for(int i=0;i<v;i++){
+    //         if(vis[i] == 0){
+    //             if(dfs(i,adj,vis,pathvis)) ans = true;  // variable "ans" is redundant
+    //         }
+    //     }
+    //     for(int i=0;i<v;i++){
+    //         if(pathvis[i] == 0) vec.push_back(i);
+    //     }
+    //     return vec;
+    // }
     
-     bool dfs(int node , vector<int> adj[] , vector<int> &vis, vector<int> &pathvis){
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    bool dfs(int node , vector<int> adj[] , vector<int> &vis, vector<int> &pathvis){
         vis[node] = 1;
         pathvis[node] = 1;
-        for(auto adjacentnode : adj[node]){
-            if(vis[adjacentnode] == 0){
-                if(dfs(adjacentnode,adj,vis,pathvis) == true) return true;
+        for(auto adjnode : adj[node]){
+            if(vis[adjnode] == 0){
+                if(dfs(adjnode,adj,vis,pathvis) == true) return true;
             }
-            else if(pathvis[adjacentnode] == 1) return true;
+            else if(pathvis[adjnode] == 1) return true;
         }
         pathvis[node] = 0;
         return false;
@@ -29,18 +79,26 @@ class Solution {
     vector<int> eventualSafeNodes(int v, vector<int> adj[]) {
         vector<int> vis(v,0);
         vector<int> pathvis(v,0);
+        vector<int>vec;
         bool ans;
-        vector<int> vec;
         for(int i=0;i<v;i++){
             if(vis[i] == 0){
-                if(dfs(i,adj,vis,pathvis)) ans = true;;
+                if(dfs(i,adj,vis,pathvis)) ans = true;
             }
         }
+        
         for(int i=0;i<v;i++){
-            if(pathvis[i] == 0) vec.push_back(i);
+            if(pathvis[i] == 0){
+                vec.push_back(i);
+            }
         }
         return vec;
     }
+    
+    
+    
+    
+    
 };
 
 
