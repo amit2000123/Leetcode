@@ -59,36 +59,37 @@ class Solution {
     
     
     
+    // for visited ,
+    //                 vis[i] = 1;
+    // for pathvisited , 
+    //                 vis[i] = 2
     
     
-    
-    bool dfs(int node , vector<int> adj[] , vector<int> &vis, vector<int> &pathvis){
-        vis[node] = 1;
-        pathvis[node] = 1;
+    bool dfs(int node , vector<int> adj[] , vector<int> &vis){
+        vis[node] = 2;
         for(auto adjnode : adj[node]){
             if(vis[adjnode] == 0){
-                if(dfs(adjnode,adj,vis,pathvis) == true) return true;
+                if(dfs(adjnode,adj,vis) == true) return true;
             }
-            else if(pathvis[adjnode] == 1) return true;
+            else if(vis[adjnode] == 2) return true;
         }
-        pathvis[node] = 0;
+        vis[node] = 1;
         return false;
         
     }
   
     vector<int> eventualSafeNodes(int v, vector<int> adj[]) {
         vector<int> vis(v,0);
-        vector<int> pathvis(v,0);
         vector<int>vec;
         bool ans;
         for(int i=0;i<v;i++){
             if(vis[i] == 0){
-                if(dfs(i,adj,vis,pathvis)) ans = true;
+                if(dfs(i,adj,vis)) ans = true;
             }
         }
         
         for(int i=0;i<v;i++){
-            if(pathvis[i] == 0){
+            if(vis[i] == 1){
                 vec.push_back(i);
             }
         }
