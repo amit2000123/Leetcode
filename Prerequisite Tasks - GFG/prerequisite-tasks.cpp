@@ -11,7 +11,7 @@ public:
 	    for(int i=0;i<m;i++){
 	        int f = pre[i].first;
 	        int s = pre[i].second;
-	        adj[s].push_back(f);
+	        adj[f].push_back(s);
 	    }
 	    
 	    vector<int> indeg(n,0);
