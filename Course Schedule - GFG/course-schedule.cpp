@@ -29,7 +29,7 @@ class Solution
                 q.push(i);
             }
         }
-        vector<int> ans,ans1;
+        vector<int> ans;
         while(q.size() != 0){
             int node = q.front();
             q.pop();
@@ -43,8 +43,8 @@ class Solution
         }
         
         if(ans.size() < n){
-            // ans.clear();
-            return ans1;
+            ans.clear();
+            return ans;
         }
         return ans;
     }
