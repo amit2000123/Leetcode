@@ -43,8 +43,9 @@ class Solution
         }
         
         if(ans.size() < n){
-            ans.clear();
-            return ans;
+            // ans.clear();
+            // return ans;
+            return {};
         }
         return ans;
     }
