@@ -8,22 +8,58 @@ class Solution
 	public:
 	//Function to find the shortest distance of all the vertices
     //from the source vertex S.
+    // vector <int> dijkstra(int v, vector<vector<int>> adj[], int s)
+    // {
+    //     priority_queue<pair<int,int>,vector<pair<int,int>> , greater<pair<int,int>>> pq;
+    //     pq.push({0,s});
+    //     vector<int> dist(v,1e9);
+    //     dist[s] = 0;
+        
+    //     while(pq.size() != 0){
+    //         int d = pq.top().first;
+    //         int node = pq.top().second;
+    //         pq.pop();
+    //         for(auto i : adj[node]){
+    //             int adjnode = i[0];
+    //             int wt = i[1];
+    //             if(d + wt < dist[adjnode]){
+    //                 pq.push({d+wt , adjnode});
+    //                 dist[adjnode] = d + wt;
+    //             }
+    //         }
+    //     }
+    //     return dist;
+        
+    // }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     vector <int> dijkstra(int v, vector<vector<int>> adj[], int s)
     {
-        priority_queue<pair<int,int>,vector<pair<int,int>> , greater<pair<int,int>>> pq;
-        pq.push({0,s});
+        set<pair<int,int>> pq;
+        pq.insert({0,s});
         vector<int> dist(v,1e9);
         dist[s] = 0;
         
         while(pq.size() != 0){
-            int d = pq.top().first;
-            int node = pq.top().second;
-            pq.pop();
+            auto it = *(pq.begin());
+            int d = it.first;
+            int node = it.second;
+            pq.erase(it);
+            
             for(auto i : adj[node]){
                 int adjnode = i[0];
                 int wt = i[1];
                 if(d + wt < dist[adjnode]){
-                    pq.push({d+wt , adjnode});
+                    pq.erase({wt,adjnode});
+                    pq.insert({d+wt , adjnode});
                     dist[adjnode] = d + wt;
                 }
             }
@@ -31,7 +67,40 @@ class Solution
         return dist;
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //{ Driver Code Starts.
