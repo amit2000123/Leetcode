@@ -49,10 +49,11 @@ class Solution
         dist[s] = 0;
         
         while(pq.size() != 0){
-            auto it = *(pq.begin());
-            int d = it.first;
-            int node = it.second;
-            pq.erase(it);
+            // auto it = *(pq.begin());
+            int d = (*(pq.begin())).first;
+            int node = (*(pq.begin())).second;
+            // pq.erase(it);
+            pq.erase({d,node});
             
             for(auto i : adj[node]){
                 int adjnode = i[0];
