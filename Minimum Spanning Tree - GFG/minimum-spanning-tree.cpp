@@ -6,6 +6,9 @@ using namespace std;
 // class Solution
 // {
 // 	public:
+// Prim's Algorithm
+
+
 // 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
 //     int spanningTree(int v, vector<vector<int>> adj[])
 //     {
@@ -40,6 +43,7 @@ using namespace std;
 // };
 
 
+// Kruskal's Algorithm
 
 
 class DisjointSet{
