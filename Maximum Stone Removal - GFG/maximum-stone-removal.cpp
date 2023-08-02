@@ -63,8 +63,11 @@ class Solution {
         }
         
         int c = 0;
-        for(auto i : m){
-            if(ds.findUPar(i.first) == i.first) c++;
+        // for(auto i : m){
+        //     if(ds.findUPar(i.first) == i.first) c++;
+        // }
+        for(int i=0;i<=(maxrow + maxcol+1) ; i++){
+            if(ds.findUPar(i) == i && ds.size[i] > 1) c++; 
         }
         return n- c;
     }
