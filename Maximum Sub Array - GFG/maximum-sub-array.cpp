@@ -32,12 +32,12 @@ public:
     	                ansstart = start;
     	                ansend = i;
     	            }
-    	           // else if(i-start == ansend - ansstart){
-    	           //     if(start < ansstart){
-    	           //         ansstart = start;
-    	           //         ansend = i;
-    	           //     }
-    	           // }
+    	            else if(i-start == ansend - ansstart){
+    	                if(start < ansstart){
+    	                    ansstart = start;
+    	                    ansend = i;
+    	                }
+    	            }
     	        }
     	       // if(sum < 0){
     	       //     sum = 0;
