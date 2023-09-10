@@ -33,17 +33,49 @@ class Solution{
     
     // Better
 
+    // int majorityElement(int arr[], int n)
+    // {
+        
+    //     unordered_map<int,int> m;
+    //     for(int i=0;i<n;i++) m[arr[i]]++;
+    //     for(auto i : m){
+    //         if(i.second > n/2) return i.first;
+    //     }
+    //     return -1;
+        
+    // }   
+    
+    
+    
+    
+    // Optimal
     int majorityElement(int arr[], int n)
     {
-        
-        unordered_map<int,int> m;
-        for(int i=0;i<n;i++) m[arr[i]]++;
-        for(auto i : m){
-            if(i.second > n/2) return i.first;
+        int cnt = 0;
+        int ele;
+        for(int i=0;i<n;i++){
+            if(cnt == 0){
+                ele = arr[i];
+                cnt++;
+            }
+            else if(ele != arr[i]){
+                cnt--;
+            }
+            else{
+                cnt++;
+            }
+        }
+        if(cnt > 0){
+            int c = 0;
+            for(int i=0;i<n;i++){
+                if(ele == arr[i])c++;
+            }
+            if(c > n/2) return ele;
         }
         return -1;
         
-    }    
+    }  
+    
     
 };
 
