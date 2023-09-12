@@ -5,23 +5,50 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+//   Brute
+    // vector<int> Solve(int n, vector<int>& arr) {
+        
+    //     vector<int> ans;
+    //     for(int i=0;i<n;i++){
+    //         if(ans.size() == 0 || ans[0] != arr[i]){
+    //             int c = 0;
+    //             for(int j=0;j<n;j++){
+    //                 if(arr[i] == arr[j]) c++;
+    //             }
+    //             if(c > n/3) ans.push_back(arr[i]);
+    //             if(ans.size() == 2) break;
+    //         }
+    //     }
+    //     sort(ans.begin(),ans.end());
+    //     if(ans.size() == 0) return {-1};
+    //     return ans;
+    // }
+    
+    
+    
+    
+    //  // Better
+    
+    
+    
     vector<int> Solve(int n, vector<int>& arr) {
         
         vector<int> ans;
+        unordered_map<int,int> m;
+        
         for(int i=0;i<n;i++){
-            if(ans.size() == 0 || ans[0] != arr[i]){
-                int c = 0;
-                for(int j=0;j<n;j++){
-                    if(arr[i] == arr[j]) c++;
-                }
-                if(c > n/3) ans.push_back(arr[i]);
-                if(ans.size() == 2) break;
-            }
+            m[arr[i]]++;
+            if(m[arr[i]] == n/3 + 1) ans.push_back(arr[i]);
         }
         sort(ans.begin(),ans.end());
         if(ans.size() == 0) return {-1};
         return ans;
     }
+    
+    
+    
+    
+    
 };
 
 //{ Driver Code Starts.
