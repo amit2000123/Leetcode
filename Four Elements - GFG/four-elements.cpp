@@ -32,7 +32,7 @@ int main()
 bool find4Numbers(int arr[], int n, int target)  
 {
         // int n = arr.size();
-        vector<vector<int>> ans;
+        // vector<vector<int>> ans;
         sort(arr,arr+n);
         for(int i=0;i<n;i++){
             if(i > 0 && arr[i] == arr[i-1]) continue;
