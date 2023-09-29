@@ -6,16 +6,34 @@ using namespace std;
 class Solution{   
 public:
     long maximumSumSubarray(int k, vector<int> &arr , int n){
+        // long sum = 0;
+        // long maxi = INT_MIN;
+        // for(int i=0;i<k;i++){
+        //     sum += arr[i];
+        // }
+        // maxi = max(maxi , sum);
+        
+        // for(int i=k;i<n;i++){
+        //     sum = sum + arr[i] - arr[i - k];
+        //     maxi = max(maxi , sum);
+        // }
+        // return maxi;
+        
         long sum = 0;
         long maxi = INT_MIN;
-        for(int i=0;i<k;i++){
-            sum += arr[i];
-        }
-        maxi = max(maxi , sum);
-        
-        for(int i=k;i<n;i++){
-            sum = sum + arr[i] - arr[i - k];
-            maxi = max(maxi , sum);
+        int i=0 , j = 0;
+        while(j < n){
+            sum += arr[j];
+            if(j-i+1 < k){
+                j++;
+            }
+            
+            else if(j-i+1 == k){
+                maxi = max(sum , maxi);
+                sum = sum - arr[i];
+                i++;
+                j++;
+            }
         }
         return maxi;
     }
