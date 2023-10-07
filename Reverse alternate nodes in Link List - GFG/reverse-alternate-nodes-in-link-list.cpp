@@ -78,20 +78,22 @@ class Solution
 {
     public:
     // Node* reverse(Node* head){
-    //     Node* current = head;
-    //     Node *prev = NULL, *next = NULL;
  
-    //     while (current != NULL) {
-           
-    //         next = current->next;
-           
-    //         current->next = prev;
+    
+    
+    Node *reverse(Node *head){
+        Node *prev = NULL;
+        Node *curr = head;
+        
+        while(curr != NULL){
+            Node *next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
             
-    //         prev = current;
-    //         current = next;
-    //     }
-    //     return prev;
-    // }
+        }
+        return prev;
+    }
     void rearrange(struct Node *odd)
     {
         // if(head==NULL || head->next==NULL || head->next->next==NULL) return;
