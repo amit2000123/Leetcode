@@ -77,10 +77,7 @@ void insert()
 class Solution
 {
     public:
-    // Node* reverse(Node* head){
- 
-    
-    
+
     Node *reverse(Node *head){
         Node *prev = NULL;
         Node *curr = head;
@@ -96,31 +93,7 @@ class Solution
     }
     void rearrange(struct Node *odd)
     {
-        // if(head==NULL || head->next==NULL || head->next->next==NULL) return;
-        //   Node* a=head;
-        //   Node* b=head->next;
-        //   Node* c=b;
-          
-        
-        // while(a&&a->next){
-        //     a->next=a->next->next;
-        //     a=a->next;
-            
-        //     b->next=b->next->next;
-        //     b=b->next;
-        //     if(b&&b->next==NULL){
-        //         break;
-        //     }
-        // }
-        // c=reverse(c);
-        // a->next=c;
-        
-        
-        
-        
-        
-        
-        
+      
         Node *first = odd;
         Node *second = odd->next;
         Node *second_copy = second;
