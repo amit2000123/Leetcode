@@ -28,7 +28,7 @@ class Solution{
                 int bit = arr[j] & 1;
                 if(bit == 0) c0++;
                 else c1++;
-                arr[j] /= 2;
+                arr[j] = arr[j] >> 1;
             }
             
             sum += ((c0 * c1) * (1 << i));
