@@ -6,7 +6,7 @@ using namespace std;
 class Solution{
 	public:
 	    
-	    void f(int ind , string s , string &temp , vector<string> &ans){
+	    void f(int ind , string s , string temp , vector<string> &ans){
 	        if(ind == s.size()){
 	            if(temp == "") return;
 	            ans.push_back(temp);
