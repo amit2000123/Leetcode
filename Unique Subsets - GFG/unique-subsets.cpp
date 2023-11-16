@@ -11,13 +11,8 @@ class Solution
     
     void f(int ind , vector<int>&arr , vector<int>&temp , vector<vector<int>> &ans ,set<vector<int>> &s){
         if(ind == arr.size()){
-            // sort(temp.begin(),temp.end());
-            // if(s.find(temp) == s.end() ){
-            //     ans.push_back(temp);
                 s.insert(temp);
                 return;
-            // }
-            
         }
         
         
