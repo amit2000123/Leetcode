@@ -34,7 +34,7 @@ class Solution
             f(open , close-1 , temp , ans);
         }
         
-        if(open == 0){
+        else if(open == 0){
             temp.push_back(')');
             f(open , close-1,temp,ans);
         }
