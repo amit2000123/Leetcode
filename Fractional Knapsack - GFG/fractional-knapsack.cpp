@@ -48,7 +48,7 @@ class Solution
             
             else{
                 int remWeight = w - currWeight;
-                totalValue += ((double)remWeight / (double)v[i].weight) * (double)v[i].value;
+                totalValue += (remWeight / ((1.0)*v[i].weight)) * v[i].value;
                 break;
             }
         }
